@@ -1,0 +1,43 @@
+/* Reuse existing styles from EmotionDetectionApp.css and LoginPage.css; only add sign-up-specific styles */
+
+/* Input Group for Icons */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-group-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4b5563;
+    z-index: 2;
+  }
+  
+  .form-control {
+    padding-left: 40px; /* Space for icon */
+  }
+  
+  /* Center text for login link */
+  .text-center {
+    text-align: center;
+    color: #4b5563;
+    font-size: 0.875rem;
+  }
+  
+  /* Full-width button */
+  .w-100 {
+    width: 100%;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 576px) {
+    .input-group-icon {
+      left: 8px;
+    }
+    .form-control {
+      padding-left: 35px;
+    }
+  }

@@ -1,0 +1,175 @@
+*{
+    scrollbar-width: none;
+}
+body {
+    background-color: #f3f4f6;
+    font-family: Arial, sans-serif;
+    scrollbar-width: none;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url("https://tse3.mm.bing.net/th?id=OIP.FjLoFx_7PAPMN2iGlxtDYgHaEK&pid=Api&P=0&h=180")
+        no-repeat center center;
+    background-size: cover;
+    background-color: #f7f9fc; /* Fallback color */
+    position: relative;
+}
+
+.app-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(
+        255,
+        255,
+        255,
+        0.7
+    ); /* Less opaque for more visible background */
+    z-index: 0;
+}
+.navbar,
+.content,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav .nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+nav .nav-links a {
+    color: #4b5563;
+}
+
+nav .nav-links a:hover {
+    color: #4f46e5;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+main .content {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: math;
+}
+
+main h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+main hr {
+    width: 4rem;
+    height: 0.25rem;
+    background-color: #924747;
+    border: none;
+
+    margin: auto;
+    margin-bottom: 1.5rem;
+}
+
+main p {
+    color: #000000;
+    margin-bottom: 1.5rem;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+main .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    main .values-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+main .value-card {
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background-color: #f4d6c6;
+    text-align: center;
+}
+
+main .value-card:hover {
+    background-color: #ebc0a9;
+}
+
+main .value-card svg {
+    margin-bottom: 0.5rem;
+}
+
+main .value-card h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+main .value-card p {
+    font-size: 0.875rem;
+    color: #000000;
+}
+
+main .tech-section {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+}
+
+footer {
+    background-color: #1f2937;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.875rem;
+}
