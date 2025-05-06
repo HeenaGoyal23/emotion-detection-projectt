@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./EmotionDetectionApp.css";
 import { Camera, Upload, Sparkles, CircleUser } from "lucide-react";
 import Logo from "./../images/wmremove-transformed.jpeg";
 import { useNavigate } from "react-router-dom";
+import "./EmotionDetectionApp.css";
 
 function EmotionDetectionApp() {
     let navigate = useNavigate();
@@ -80,6 +80,8 @@ function EmotionDetectionApp() {
     };
     const handleLogout = () => {
         localStorage.removeItem("authToken");
+        localStorage.removeItem("userId");
+
         navigate("/login");
     };
 
@@ -98,6 +100,11 @@ function EmotionDetectionApp() {
                             </a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link" href="/emotiondetection">
+                                Detection
+                            </a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link" href="/about">
                                 About
                             </a>
@@ -108,17 +115,17 @@ function EmotionDetectionApp() {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/contact">
-                                <CircleUser />
-                            </a>
-                        </li>
-                        <li className="nav-item">
                             <a
                                 className="nav-link"
                                 href="/login"
                                 onClick={handleLogout}
                             >
                                 Logout
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/history">
+                                <CircleUser />
                             </a>
                         </li>
                     </ul>

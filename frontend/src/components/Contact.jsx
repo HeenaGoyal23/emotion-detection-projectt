@@ -8,6 +8,8 @@ const Contact = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
+        localStorage.removeItem("userId");
+
         navigate("/login");
     };
     const [formData, setFormData] = useState({
@@ -43,6 +45,11 @@ const Contact = () => {
                             </a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link" href="/emotiondetection">
+                                Detection
+                            </a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link" href="/about">
                                 About
                             </a>
@@ -53,17 +60,17 @@ const Contact = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/contact">
-                                <CircleUser />
-                            </a>
-                        </li>
-                        <li className="nav-item">
                             <a
                                 className="nav-link"
                                 href="/login"
                                 onClick={handleLogout}
                             >
                                 Logout
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/history">
+                                <CircleUser />
                             </a>
                         </li>
                     </ul>

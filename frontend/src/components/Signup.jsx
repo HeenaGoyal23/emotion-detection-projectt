@@ -39,23 +39,6 @@ function SignUpPage() {
                     <a className="navbar-brand" href="/">
                         <img src={Logo} alt="SentiBeat" height={"50px"} />
                     </a>
-                    <ul className="navbar-nav d-flex flex-row gap-3">
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">
-                                Home
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/about">
-                                About
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/contact">
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </nav>
 

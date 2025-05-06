@@ -9,6 +9,7 @@ function About() {
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
+        localStorage.removeItem("userId");
         navigate("/login");
     };
     return (
@@ -25,6 +26,11 @@ function About() {
                             </a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link" href="/emotiondetection">
+                                Detection
+                            </a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link" href="/about">
                                 About
                             </a>
@@ -32,11 +38,6 @@ function About() {
                         <li className="nav-item">
                             <a className="nav-link" href="/contact">
                                 Contact
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/contact">
-                                <CircleUser />
                             </a>
                         </li>
                         <li className="nav-item">
@@ -48,6 +49,12 @@ function About() {
                                 Logout
                             </a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/history">
+                                <CircleUser />
+                            </a>
+                        </li>
+                        
                     </ul>
                 </div>
             </nav>

@@ -354,7 +354,7 @@ def login():
         conn.close()
         if result and bcrypt.checkpw(password.encode('utf-8'), result[1]):
             session['user_id'] = result[0]
-            return jsonify({'message': 'Login successful'}), 200
+            return jsonify({"id": result[0], "message": "Login successful"}), 200
         else:
             return jsonify({'message': 'Invalid email or password'}), 401
 
@@ -396,6 +396,35 @@ def emotion():
 
     else:
         return jsonify({"message": "Error storing emotion in database."}), 500
+
+@app.route('/emotion-history/<int:user_id>', methods=['GET'])
+def get_emotion_history(user_id):
+    try:
+        conn = mysql.connector.connect(
+            host='localhost',
+            user='myappuser',
+            password='mypassword',
+            database='myappdb'
+        )
+        cursor = conn.cursor(dictionary=True)
+
+        query = '''
+            SELECT emotion, timestamp
+            FROM emotion_history
+            WHERE user_id = %s
+            ORDER BY timestamp DESC
+        '''
+        cursor.execute(query, (user_id,))
+        history = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return jsonify(history), 200
+
+    except Exception as e:
+        print("Error:", e)
+        return jsonify({'error': 'Failed to fetch emotion history'}), 500
 
 
 @app.route('/upload', methods=['POST'])

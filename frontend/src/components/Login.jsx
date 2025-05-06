@@ -23,8 +23,7 @@ function LoginPage() {
             const data = await response.json();
             setMessage(data.message);
             if (response.ok) {
-                // Redirect or handle successful login (e.g., store token, navigate to dashboard)
-
+                localStorage.setItem("userId", data.id);
                 localStorage.setItem("authToken", "mock-token");
                 navigate("/");
 
@@ -43,23 +42,6 @@ function LoginPage() {
                     <a className="navbar-brand" href="/">
                         <img src={Logo} alt="SentiBeat" height={"50px"} />
                     </a>
-                    <ul className="navbar-nav d-flex flex-row gap-3">
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">
-                                Home
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/about">
-                                About
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/contact">
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </nav>
 

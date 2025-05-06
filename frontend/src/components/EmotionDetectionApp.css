@@ -380,3 +380,242 @@ body {
     font-weight: bold;
     color: #555;
 }
+
+/* Unique prefix for all selectors */
+.sentibeat-home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url("https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00MjItMDYzLWt6cGhnMjNrLmpwZw.jpg")
+        no-repeat center center;
+    background-size: cover;
+    background-color: #f7f9fc; /* Fallback color */
+    position: relative;
+    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+}
+
+/* Navbar */
+.sentibeat-home-container .sentibeat-home-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.sentibeat-home-container .sentibeat-home-container-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.sentibeat-home-container .sentibeat-home-navbar-brand {
+    color: #1f2937 !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sentibeat-home-container .sentibeat-home-navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sentibeat-home-container .sentibeat-home-nav-item {
+    margin-left: 1.5rem;
+}
+
+.sentibeat-home-container .sentibeat-home-nav-link {
+    color: #4b5563 !important;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.sentibeat-home-container .sentibeat-home-nav-link:hover {
+    color: #2563eb !important;
+}
+
+/* Hero Section */
+.sentibeat-home-container .sentibeat-home-hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    flex-wrap: wrap;
+    height: 70vh;
+}
+
+.sentibeat-home-container .sentibeat-home-hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.sentibeat-home-container .sentibeat-home-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    font-family: "Roboto", sans-serif;
+}
+
+.sentibeat-home-container .sentibeat-home-hero-title span {
+    color: #925448;
+}
+
+.sentibeat-home-container .sentibeat-home-hero-subtitle {
+    font-size: 1.25rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+}
+
+.sentibeat-home-container .sentibeat-home-hero-btn {
+    background-color: #925448;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sentibeat-home-container .sentibeat-home-hero-btn:hover {
+    background-color: #ca877a;
+    transform: translateY(-2px);
+}
+
+.sentibeat-home-container .sentibeat-home-hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.sentibeat-home-container .sentibeat-home-camera-icon {
+    color: #925448;
+    animation: sentibeat-home-pulse 2s infinite;
+}
+
+@keyframes sentibeat-home-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Features Section */
+.sentibeat-home-container .sentibeat-home-features-section {
+    background-color: #ffffff;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    height: 70vh;
+}
+
+.sentibeat-home-container .sentibeat-home-features-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 2rem;
+}
+
+.sentibeat-home-container .sentibeat-home-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sentibeat-home-container .sentibeat-home-feature-card {
+    background-color: #ffe6d9;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sentibeat-home-container .sentibeat-home-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sentibeat-home-container .sentibeat-home-feature-card h3 {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.sentibeat-home-container .sentibeat-home-feature-card p {
+    font-size: 1rem;
+    color: #4b5563;
+}
+
+/* Footer */
+.sentibeat-home-container .sentibeat-home-footer {
+    background-color: #ffffff;
+    color: #4b5563;
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sentibeat-home-container .sentibeat-home-hero-section {
+        flex-direction: column;
+        text-align: center;
+        margin: 2rem auto;
+    }
+
+    .sentibeat-home-container .sentibeat-home-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .sentibeat-home-container .sentibeat-home-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .sentibeat-home-container .sentibeat-home-hero-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .sentibeat-home-container .sentibeat-home-hero-image {
+        margin-top: 2rem;
+    }
+
+    .sentibeat-home-container .sentibeat-home-features-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .sentibeat-home-container .sentibeat-home-hero-title {
+        font-size: 2rem;
+    }
+
+    .sentibeat-home-container .sentibeat-home-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sentibeat-home-container .sentibeat-home-feature-card {
+        padding: 1.5rem;
+    }
+}
