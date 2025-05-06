@@ -12,8 +12,12 @@ import bcrypt
 import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = 'sentibeat'
-CORS(app, resources={r"/*": {"origins": "*"}})
+app.secret_key = 'sentibeat123'
+app.config.update(
+    SESSION_COOKIE_SAMESITE='Lax',   # or 'Strict' if you don't need cross-site
+    SESSION_COOKIE_SECURE=False      # must be False for HTTP (localhost)
+)
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 
 # Function to fetch Spotify playlists based on emotion
 def fetch_spotify_playlists(emotion):
@@ -348,7 +352,6 @@ def login():
         result = cursor.fetchone()
         cursor.close()
         conn.close()
-        print(result)
         if result and bcrypt.checkpw(password.encode('utf-8'), result[1]):
             session['user_id'] = result[0]
             return jsonify({'message': 'Login successful'}), 200
@@ -364,26 +367,6 @@ def capture():
     result = show_camera()
     return jsonify({"message": result})
 
-# @app.route('/emotion', methods=['GET'])
-# def emotion():
-#     result = detect_emotion('captured_image.jpg')
-
-#     # Fetch content
-#     spotify_playlists = fetch_spotify_playlists(result)
-#     health_diet = fetch_dynamic_diet(result)
-#     health_exercise = fetch_dynamic_workouts(result)
-#     movie_recommendations = fetch_movies_based_on_emotion(result)  # Get movie recommendations based on emotion
-
-#     recommendations = {
-#         "spotify": spotify_playlists,
-#         "diet": health_diet,
-#         "exercise": health_exercise,
-#         "movies": movie_recommendations  # Include movie recommendations
-#     }
-
-#     return jsonify({"emotion": result, "recommendations": recommendations})
-
-
 @app.route('/emotion', methods=['GET'])
 def emotion():
     result = detect_emotion('captured_image.jpg')
@@ -391,8 +374,9 @@ def emotion():
     if "error" in result.lower():
         return jsonify({"message": "Error detecting emotion."}), 400
 
-    # Assuming you have a way to get user ID, e.g., from JWT or session
-    user_id = session.get('user_id');  # Placeholder, replace with actual user ID
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'message': 'No user session found'}), 401 
 
     if store_emotion_in_db(user_id, result):
         # Fetch content based on emotion

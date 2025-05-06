@@ -17,7 +17,7 @@ function EmotionDetectionApp() {
 
     const captureImage = async () => {
         try {
-            const response = await fetch("http://127.0.0.1:5000/capture");
+            const response = await fetch("http://localhost:5000/capture");
             const data = await response.json();
             setMessage(data.message);
         } catch (error) {
@@ -36,7 +36,7 @@ function EmotionDetectionApp() {
         formData.append("file", file);
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/upload", {
+            const response = await fetch("http://localhost:5000/upload", {
                 method: "POST",
                 body: formData,
             });
@@ -49,7 +49,14 @@ function EmotionDetectionApp() {
 
     const detectEmotion = async () => {
         try {
-            const response = await fetch("http://127.0.0.1:5000/emotion");
+            const response = await fetch("http://localhost:5000/emotion", {
+                method: "GET",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
             const data = await response.json();
             setEmotion(data.emotion);
             setRecommendations(
